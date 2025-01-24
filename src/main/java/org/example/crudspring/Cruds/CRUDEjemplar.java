@@ -46,7 +46,7 @@ public class CRUDEjemplar {
 
     //INSERT
     @PostMapping("/ejemplar")
-    public ResponseEntity<Ejemplar> addEjemplar(@Valid @RequestBody Ejemplar ejemplar){
+    public ResponseEntity<Ejemplar> addEjemplar(@Valid @RequestBody Ejemplar ejemplar) {
         Ejemplar ejemplarPersistido = this.ejemplaresRepositorio.save(ejemplar);
         return ResponseEntity.ok().body(ejemplarPersistido);
     }

@@ -32,8 +32,8 @@ public class CRUDUsuario {
     //SELECT BY ID
     @GetMapping("/{id}")
     @Cacheable
-    public ResponseEntity<Usuario> getUsuarioById(@PathVariable Integer id) {
-        Usuario u = this.usuariosRepositorio.findById(String.valueOf(id)).get();
+    public ResponseEntity<Usuario> getUsuarioById(@PathVariable String id) {
+        Usuario u = this.usuariosRepositorio.findById(id).get();
         return ResponseEntity.ok(u);
     }
 
@@ -74,8 +74,8 @@ public class CRUDUsuario {
 
     //DELETE
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUsuario(@PathVariable Integer id) {
-        usuariosRepositorio.deleteById(String.valueOf(id));
+    public ResponseEntity<String> deleteUsuario(@PathVariable String id) {
+        usuariosRepositorio.deleteById(id);
         String mensaje = "Usuario borrado";
         return ResponseEntity.ok().body(mensaje);
     }
